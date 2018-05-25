@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "test2": {
+    "fileUpload": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -95,7 +95,7 @@
         }
       }
     },
-    "test2-e2e": {
+    "fileUpload-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -118,5 +118,5 @@
       }
     }
   },
-  "defaultProject": "fileUpload"
+  "defaultProject": "tefileUploadst2"
 }
