@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/test2",
+            "outputPath": "dist/fileUpload",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "test2:build"
+            "browserTarget": "fileUpload:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "test2:build:production"
+              "browserTarget": "fileUpload:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "test2:build"
+            "browserTarget": "fileUpload:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "test2:serve"
+            "devServerTarget": "fileUpload:serve"
           }
         },
         "lint": {
@@ -118,5 +118,5 @@
       }
     }
   },
-  "defaultProject": "test2"
+  "defaultProject": "fileUpload"
 }
