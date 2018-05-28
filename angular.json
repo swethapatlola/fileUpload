@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "file-lib": {
+      "root": "projects/file-lib",
+      "sourceRoot": "projects/file-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/file-lib/tsconfig.lib.json",
+            "project": "projects/file-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/file-lib/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/file-lib/src/test.ts",
+            "tsConfig": "projects/file-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/file-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/file-lib/tsconfig.lib.json",
+              "projects/file-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tefileUploadst2"
