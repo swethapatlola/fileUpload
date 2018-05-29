@@ -1,2 +1,28 @@
-<img [src]="url" height="200" *ngIf="url"> <br/>
-<input type='file' (change)="onSelectFile($event)">
+<div class="container">
+    <div class="row">
+        <p-growl [(value)]="msgs"></p-growl>
+        <!-- <img [src]="url" height="200" *ngIf="url"> -->
+        <br/>
+        <!-- <input type='file' (change)="onSelectFile($event)"> -->
+        <br/>
+        <p>Custom File Upload</p>
+        <hr>
+        <p-fileUpload name="myfile[]" customUpload="true"  mode="advanced"
+            accept="{{fileOptions.allowedTypes}}" 
+            fileLimitMessage="Invalid File Limit"
+            fileLimit=1 cancelLabel="reset" (uploadHandler)="onUpload($event)">
+        </p-fileUpload>
+        <br>
+        <hr>
+        <p>Auto Files Upload</p>
+        <p-fileUpload 
+                invalidSizeMessage="JournalDev: Invalid Size"
+                invalidFileMessage="JournalDev: Invalid File Type"
+                fileLimitMessage="JournalDev: Invalid File Limit"
+                mode="advanced" multiple="false" fileLimit="1" sizeLimit="10"
+                allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                fileUploadListener="#{fileUploadManagedBean.fileUploadListener}"
+                update="msg">
+        </p-fileUpload>
+    </div>
+</div>

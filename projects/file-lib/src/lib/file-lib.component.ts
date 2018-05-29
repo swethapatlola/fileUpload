@@ -1,13 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Message } from 'primeng/api';
+import { GrowlModule } from 'primeng/growl';
 
 @Component({
   selector: 'lib-file-lib',
   templateUrl: './file-lib.component.html',
-  styles: []
+  styleUrls: ['./file-lib.component.css']
 })
 export class FileLibComponent implements OnInit {
   url: any;
-  constructor() { }
+  @Input() fileOptions: any;
+
+  msgs: Message[];
+
+  uploadedFiles: any[] = [];
+
+  constructor() { console.log(this.fileOptions); }
 
   ngOnInit() { }
 
@@ -21,5 +29,26 @@ export class FileLibComponent implements OnInit {
         this.url = target.result;
       };
     }
+  }
+
+  myUploader(event) {
+    // console.log('event.target.files', event.files);
+  }
+
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      console.log(file);
+      this.url = file.objectURL.changingThisBreaksApplicationSecurity;
+      /* Call your http service to save file on server side */
+      this.msgs = [];
+      this.msgs.push({ severity: 'info', summary: 'File Uploaded', detail: '' });
+    }
+  }
+  onBeforeUpload(ev) {
+    // ev.formData.append('field', JSON.stringify(field));
+    ev.xhr.withCredentials = true;
+    ev['Content-Type'] = undefined;
+    // console.log(ev);
   }
 }
