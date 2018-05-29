@@ -22,6 +22,7 @@
                 fileLimitMessage="JournalDev: Invalid File Limit"
                 mode="advanced" multiple="false" fileLimit="1" sizeLimit="10"
                 allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                accept="{{fileOptions[0].allowType}}" 
                 fileUploadListener="#{fileUploadManagedBean.fileUploadListener}"
                 update="msg">
         </p-fileUpload>
