@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { FileOptions } from '../../projects/file-lib/src/lib/file-options';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,14 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  // options = { allowedTypes: '.csv, .xml, .json', multiple: false };
-  options = { allowedTypes: 'image/*', multiple: 'false' };
-  constructor() {
+ // options: FileOptions[] = [new FileOptions('image/*', 'false')];
+  options: FileOptions[] = [
+    {
+      allowType: 'image/*',
+      isMultiple: 'multiple'
+    }
+  ];
 
+  constructor() {
   }
 }

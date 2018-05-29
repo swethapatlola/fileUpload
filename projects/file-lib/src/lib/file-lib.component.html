@@ -6,10 +6,11 @@
         <!-- <input type='file' (change)="onSelectFile($event)"> -->
         <br/>
         <p>Custom File Upload</p>
-        <hr>
+        <hr>{{fileOptions | json}}
         <p-fileUpload name="myfile[]" customUpload="true"  mode="advanced"
-            accept="{{fileOptions.allowedTypes}}" 
+            accept="{{fileOptions[0].allowType}}" 
             fileLimitMessage="Invalid File Limit"
+            [multiple]="fileOptions[0].isMultiple === 'multiple'"
             fileLimit=1 cancelLabel="reset" (uploadHandler)="onUpload($event)">
         </p-fileUpload>
         <br>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Message } from 'primeng/api';
 import { GrowlModule } from 'primeng/growl';
+import { FileOptions } from './file-options';
 
 @Component({
   selector: 'lib-file-lib',
@@ -9,7 +10,7 @@ import { GrowlModule } from 'primeng/growl';
 })
 export class FileLibComponent implements OnInit {
   url: any;
-  @Input() fileOptions: any;
+  @Input() fileOptions: FileOptions;
 
   msgs: Message[];
 
